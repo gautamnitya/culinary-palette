@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Recipe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Culinary Palate</a>
+        <div id="userNav">
+            <!-- This section will be dynamically updated based on user login status -->
+        </div>
+    </nav>
+
+    <div class="banner">
+        <img src="Let’s.png" alt="Culinary Palate Banner">
+    </div>
+
+    <h1>Add a New Recipe</h1>
+
+    <!-- Recipe Form -->
+    <form id="recipeForm" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Title" required><br>
+        <input type="text" name="ingredients" placeholder="Ingredients (comma-separated)" required><br>
+        <textarea name="instructions" placeholder="Instructions" required></textarea><br>
+        <input type="text" name="time" placeholder="Cooking Time"><br>
+        <input type="file" name="coverImage" accept="image/*" required><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br><br><br><br><br><br>
+
+    <footer>
+        <p>Welcome to Culinary Palate ❤️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

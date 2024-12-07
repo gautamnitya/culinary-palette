@@ -1,0 +1,29 @@
+<!-- search.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searched Recipes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Culinary Palate</a>
+        <form id="searchForm" action="search.html" method="GET">
+            <input type="text" name="query" id="searchInput" placeholder="Search recipes..." />
+            <button type="submit">Search</button>
+        </form>
+        <div id="userNav">
+            <!-- These elements will be dynamically inserted by JavaScript -->
+        </div>
+    </nav>
+
+    <h1>Searched Recipes</h1>
+    
+    <!-- Display search results here -->
+    <div id="searchResults"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

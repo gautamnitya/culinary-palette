@@ -1,0 +1,858 @@
+/* style.css */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Satisfy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+body {
+    /* font-family: "Montserrat", sans-serif; */
+    background-color: #1A1A1A;
+    color: rgb(223, 223, 223);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-family: 'Satisfy', cursive;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Banner Styles */
+.bannersection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('Let.png');
+    background-size: cover;
+    background-position: center;
+    color: #FFF;
+    padding-top: 100px; /* Adjust to offset for fixed navbar */
+}
+
+.bannersection h4 {
+    font-size: 4em;
+    margin-top: 5px;
+    color: #FFDD44;
+    /* text-transform: uppercase; */
+    font-family: 'Satisfy', 'cursive';
+}
+
+.bannersection p {
+    font-size: 1.5em;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #1f1e1e; /* Deep Brown */
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #d0a933; /* Soft Gold */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+nav a {
+    text-decoration: none;
+    color: #E0E0E0;
+    margin-right: 15px;
+    font-size: 16px;
+}
+nav a.nbutton button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #e9a397;
+    font-size: 18px;
+    border: none;
+    font-family: "Merriweather", serif;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 15px;
+}
+
+nav a.nbutton button:hover {
+    background-color: #ffe4e1;
+}
+nav .logo {
+    font-family: 'Satisfy', cursive;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #d0a933; /* Soft Gold */
+    margin-right: auto;
+    letter-spacing: 1px; 
+}
+
+#searchForm {
+    display: flex;
+    align-items: center;
+    gap:0;
+    background-color: #1f1e1e;
+}
+
+#searchForm input {
+    background-color: transparent;
+    border: 1px solid wheat;
+    border-radius: 25px;
+    padding: 8px 15px;
+    color: rgb(254, 254, 254);
+    font-size: 16px;
+    outline: none;
+    width: 300px;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Expanding input field effect */
+#searchForm input:focus {
+    width: 300px;
+    border-color: #ffe4b5; /* Light wheat color */
+}
+
+/* Button next to the search input */
+#searchForm button {
+    border:none;
+    outline: none;
+    color:#b0a5a2 ;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 15px;
+    margin-left: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#searchForm button:hover {
+    background-color: #ffe4e1;
+}
+/* Container for each searched recipe */
+.searchedrecipe {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-color:transparent; /* Light background for each card */
+    box-shadow: 0 4px 6px transparent;
+}
+
+/* Navigation Buttons */
+nav button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #e9a397;
+    font-size: 18px;
+    border: none;
+    font-family: "Merriweather", serif;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 15px;
+}
+
+nav button:hover {
+    background-color: #2a2928; /* Slightly Darker Gold */
+    transform: translateY(-2px);
+}
+
+
+/* Welcome Section */
+.welcome-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    max-width: 1000px;
+    padding: 2rem;
+}
+
+.welcome-content {
+    flex: 1;
+    font-size: 1.2rem;
+    word-spacing: 5px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-right: 1rem;
+}
+
+.welcome-image {
+    flex: 1;
+    text-align: center;
+}
+
+.welcome-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    border-radius: 0;
+}
+
+/* Button Styles */
+.button-container {
+    background: none;
+    border: none;
+    padding: 0;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.navbar-button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #d87867;
+    font-size: 18px;
+    border: none;
+    font-family: "Merriweather", serif;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-left: 15px;
+}
+
+
+/* Page Headers */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #D3D3D3; /* Soft Gold */
+    margin-bottom: 1rem;
+    font-family: "Dancing Script", cursive;
+    letter-spacing: 1px;
+    /* text-transform: lowercase; */
+    font-weight: 700;
+}
+
+h2 {
+    /* font-family: 'Satisfy', cursive; */
+    font-family: "Dancing Script", cursive;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    /* text-transform: lowercase; */
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+h12 {
+    text-align: center;
+    font-size: 1.75rem;
+    font-family: "Merriweather", serif;
+    color: #ced0bd; /* Soft Gold */
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    /* text-transform: uppercase; */
+    font-weight: 700;
+}
+/* Form Styles */
+form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 15px;
+    background-color: #302f2d; /* Warm Black */
+    box-shadow: 0 0 15px rgba(26, 26, 26, 0.551);
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 25px;
+    border: 1px solid #3c3838;
+    box-sizing: border-box;
+    background-color: #1A1A1A; /* Deep Brown */
+    color: #aeaeae;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #d3bcb6; /* Soft Olive Green */
+    outline: none;
+    border-radius: 25px;
+    box-shadow: 0 0 5px rgba(58, 57, 55, 0.5);
+}
+
+form textarea {
+    resize: vertical;
+    border-radius: 25px;
+    min-height: 120px;
+}
+
+form button {
+    background-color: #494747; /* Soft Olive Green */
+    color: #cccbc8;
+    border: none;
+    border-radius: 8px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    transform: scale(1.05);
+}
+form p {
+    text-align: center; /* Center the text inside <p> */
+    font-size: 20px;
+    font-family: 'Dancing Script', 'cursive';
+    margin-top: 30px;  /* Add some spacing from the input fields */
+    color: #c3c3c3;  /* Set a color for the text */
+}
+
+/* Recipe List Styles */
+/* Recipe List Styles */
+/* Hexagonal frame for recipe images */
+
+.recipe-image-container {
+    position: relative;
+    width: 550px;
+    height: 300px; /* Adjust height for a better hexagon aspect ratio */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    overflow: hidden;
+}
+
+.recipe-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content section on the right */
+.recipe-content {
+    flex-grow: 1;
+    text-align: justify; /* Justify text content */
+}
+
+/* Recipe title styling */
+.recipe-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #dbd2cb;
+}
+
+/* Recipe description styling */
+.recipe-description {
+    font-size: 1rem;
+    color: #cbc9c9;
+    margin-bottom: 20px;
+}
+
+/* Link styling */
+.recipe-link {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #ef4b4b; /* Example button color (brick red) */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.recipe-link:hover {
+    background-color: rgba(58, 12, 9, 0.267); /* Slightly lighter shade on hover */
+}
+#recipes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 2rem;
+}
+
+.recipe {
+    background-color: #333333; /* Deep Brown */
+    border-radius: 15px; /* Increased radius for softer edges */
+    overflow: scroll;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Softer shadow for depth */
+    width: 270px; /* Fixed width */
+    height: 320px; /* Fixed height */
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    position: relative;
+}
+
+/* Scale and Shadow Effects on Hover */
+.recipe:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow for hover */
+}
+
+/* Recipe Image */
+.recipe img {
+    width: 100%;
+    height: 75%; /* Adjusted height for better image aspect ratio */
+    object-fit:cover;
+    border-radius: 15px 15px 0 0; /* Smooth top corners */
+}
+
+/* Recipe Title */
+.recipe-title {
+    padding: 1rem;
+    color: #d0a933; /* Soft Gold */
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background-color: #333333; /* Deep Brown */
+    border-radius: 0 0 15px 15px; /* Smooth bottom corners */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+/* Change background on hover */
+.recipe:hover .recipe-title {
+    background-color: #4a382e; /* Lighter Deep Brown on hover */
+}
+
+/* Recipe Image Width */
+#recipeImage {
+    max-width: 40%;
+    height: auto;
+}
+
+/* Recipe Details Flex */
+.recipe-details {
+    flex: 1;
+}
+/* Recipe Container */
+.recipe-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem; /* Increased padding for more space inside the container */
+    width: 800px; /* Adjusted width to make the container larger */
+    height: auto; /* Let the height adjust automatically based on content */
+    margin: 2rem auto;
+    background: linear-gradient(135deg, #1e1d1d, #40342a); /* Gradient background */
+    border: 5px solid rgba(117, 97, 97, 0.2); /* Subtle border */
+    border-radius: 30px; /* Rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    overflow: hidden; /* Prevents content from spilling over */
+}
+
+/* Recipe Card */
+.recipe {
+    background: radial-gradient(circle, #232222, #2f2b27); /* 3D spherical effect */
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* Sphere shape */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.3), /* Outer shadow */
+        inset 0 -5px 10px rgba(0, 0, 0, 0.5); /* Inner shadow */
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+/* On Click Effect */
+.recipe:active {
+    transform: scale(0.95); /* Slight shrink effect */
+    box-shadow: 
+        0 8px 16px rgba(0, 0, 0, 0.4), /* Softer outer shadow */
+        inset 0 -3px 8px rgba(0, 0, 0, 0.6); /* Stronger inner shadow */
+}
+
+/* Recipe Image */
+.recipe img {
+    width: 70%; /* Adjust size */
+    height: 70%;
+    border-radius: 50%; /* Circular image */
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); /* Depth for image */
+    transition: transform 0.2s ease;
+}
+
+/* Recipe Title */
+.recipe h3 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+    gap: 20px;
+    color: #e0d8d8; /* Light text color */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for 3D effect */
+    letter-spacing: 1px;
+}
+
+/* Recipe Description */
+.recipe p {
+    font-size: 1rem;
+    color: #cbc9c9;
+    margin-top: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.8;
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 768px) {
+    .recipe {
+        width: 200px;
+        height: 200px;
+    }
+    .recipe img {
+        width: 60%;
+        height: 60%;
+    }
+}
+
+
+/* #3A2C29 */
+.container {
+    width: 90%;                       /* Full width up to 90% */
+    max-width: 1600px;                 /* Maximum width */
+    background-color: #1A1A1A;        /* Original color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 60px auto;
+    margin: 60px;
+}
+
+/* User Email */
+#user-email {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 20px;
+}
+
+
+#recipes-container {
+    display: flex;              /* Enable flexbox */
+    flex-wrap: wrap;            /* Allow wrapping to the next line */
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 20px;                  /* Add space between recipe cards */
+    padding: 10px;              /* Optional padding */
+    margin-top: 20px;
+}
+.recipe-image {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+.recipe-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.recipe-details p {
+    text-align: center;
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #a1a1a1;
+    line-height: 1.5;
+}
+
+/* Footer Styles */
+footer {
+    background: linear-gradient(135deg, #1A1A1A 0%, #1A1A1A 100%);
+    color: #d0a933;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+}
+
+
+footer p {
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+
+.favorite-recipe {
+    margin: 10px;
+    text-align: center;
+}
+.favorite-recipe img {
+    max-width: 100px;
+    height: auto;
+}
+
+
+/* Style the circle containing the initials */
+.circle-initials {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px; /* Vertically center the text */
+    background-color:#985454 ; /* Light background color */
+    color: #f9b7b7; /* Dark text color */
+    text-align: center;
+    border-radius: 50%; /* Make it a circle */
+    font-weight: bold;
+    font-size: 18px; /* Adjust size as needed */
+    text-decoration: none; /* Remove underline */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect to change background color */
+.circle-initials:hover {
+    background-color: #b5a68c; /* Change to your preferred color */
+    color: #543c14; /* Change text color when hovered */
+}
+
+
+/* Delete Button */
+.delete-btn {
+    background-color: #4d4d4d;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-family: 'Dancing Script', 'cursive';
+    border-radius: 16px;
+    cursor: pointer;
+    display: inline-block;
+    top: 10px;
+    right: 10px;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #beac73;
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    #recipes {
+        flex-direction: column;
+        align-items: center;
+    }
+    .recipe {
+        width: 90%;
+        height: auto;
+    }
+    #recipes-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .recipe img {
+        max-width: 100%;
+    }
+    .welcome-section {
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    .welcome-content {
+        padding-right: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    form {
+        width: 90%;
+    }
+
+    #ingredients, #instructions, #time {
+        width: 90%;
+    }
+}
+
+
+
+/* Remove default button styles */
+.likeButton {
+    all: unset; /* Resets all default button styles */
+    cursor: pointer; /* Adds pointer cursor when hovering over the heart */
+    font-size: 2rem; /* Adjust the size of the heart */
+    background: none; /* Removes any background */
+    border: none; /* Removes any border */
+    color: #ff6347; /* Default heart color (you can adjust to your preference) */
+    transition: color 0.3s ease; /* Smooth transition when the heart color changes */
+}
+
+.likeButton:hover {
+    color: #e60000; /* Change color on hover to a deeper red */
+}
+
+/* For the liked state */
+.likeButton.liked {
+    color: #ff1493; /* Deep pink for liked state */
+}
+
+/* Page Header */
+h1 {
+    text-align: center;
+    color: #F7D060; /* Warm gold */
+    margin: 2rem 0;
+    font-size: 2.5rem;
+    /* text-transform: uppercase; */
+    letter-spacing: 2px;
+}
+
+/* Liked Recipes Container */
+#likedRecipesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+
+/* Like Button */
+.likeButton {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #F7D060; /* Gold */
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.likeButton:hover {
+    transform: scale(1.2);
+    color: #FFFFFF; /* Highlight on hover */
+}
+
+/* No Liked Recipes Message */
+#noLikesMessage {
+    text-align: center;
+    color: #F7D060; /* Gold */
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    font-style: italic;
+}
+/* Remove default button styles */
+.profileButton {
+    all: unset; /* Resets all default button styles */
+    cursor: pointer; /* Adds pointer cursor when hovering over the button */
+    font-size: 2rem; /* Adjust the size of the button icon */
+    background: none; /* Removes any background */
+    border: none; /* Removes any border */
+    color: #ff6347; /* Default button color (you can adjust to your preference) */
+    transition: color 0.3s ease; /* Smooth transition when the button color changes */
+}
+
+.profileButton:hover {
+    color: #e60000; /* Change color on hover to a deeper red */
+}
+
+/* For active state */
+.profileButton.active {
+    color: #ff1493; /* Deep pink for active state */
+}
+
+/* Page Header */
+h1 {
+    text-align: center;
+    color: #F7D060; /* Warm gold */
+    margin: 2rem 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+
+/* Liked Recipes Container */
+#likedRecipesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Recipe Card Styling */
+.recipeCard {
+    background-color: #4b3737;
+    padding: 15px;
+    border: 1px solid #4b3737;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    width: 200px;
+    height: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.recipeCard img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.recipeCard h3 {
+    font-size: 1.2rem;
+    color: #aca559;
+    margin: 10px 0;
+}
+
+.recipeCard p {
+    font-size: 1rem;
+    color: #e0d8d8;
+}
+
+.recipeCard button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.recipeCard button:hover {
+    background-color: #e60000; /* Change button color on hover */
+}
+
+/* No Liked Recipes Message */
+#noLikesMessage {
+    text-align: center;
+    color: #F7D060; /* Gold */
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    font-style: italic;
+}

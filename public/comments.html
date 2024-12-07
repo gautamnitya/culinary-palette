@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Comments</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="recipe-title">Recipe Comments</h1>
+        <a href="index.html" class="btn">Back to Recipes</a>
+    </header>
+    <main>
+        <section>
+            <h2>Comments</h2>
+            <ul id="comments-list"></ul>
+        </section>
+
+        <section>
+            <h2>Add a Comment</h2>
+            <form id="add-comment-form">
+                <textarea id="comment-content" placeholder="Write your comment..." required></textarea>
+                <button type="submit" class="btn">Add Comment</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        const recipeId = new URLSearchParams(window.location.search).get('id'); // Get recipe ID from query parameter
+        console.log(`recipeId: ${recipeId}`);
+        const commentsList = document.getElementById('comments-list');
+        const addCommentForm = document.getElementById('add-comment-form');
+
+        // Fetch and display comments for the recipe
+        async function fetchComments() {
+            try {
+                const response = await fetch(`http://localhost:3000/api/recipes/${recipeId}/comments`);
+                if (!response.ok) throw new Error('Failed to fetch comments');
+
+                const comments = await response.json();
+                console.log(`typeof(comments): ${typeof(comments)}`);
+                commentsList.innerHTML = '';
+
+                if (comments.length === 0) {
+                    commentsList.innerHTML = '<p>No comments yet. Be the first to comment!</p>';
+                    return;
+                }
+
+                comments['comments'].forEach(comment => {
+                    const commentItem = document.createElement('li');
+                    commentItem.innerHTML = `
+                        <p>${comment.content}</p>
+                        <small>By User ID: ${comment.userId} on ${new Date(comment.createdAt).toLocaleString()}</small>
+                    `;
+                    commentsList.appendChild(commentItem);
+                });
+            } catch (error) {
+                console.error(error);
+                commentsList.innerHTML = '<p>Error loading comments. Please try again later.</p>';
+            }
+        }
+
+        // Handle adding a new comment
+        addCommentForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const content = document.getElementById('comment-content').value;
+            console.log(content);
+            try {
+                const response = await fetch(`http://localhost:3000/api/recipes/${recipeId}/comments`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + localStorage.getItem('token') // Assuming token-based auth
+                    },
+                    body: JSON.stringify({ content })
+                });
+
+                if (!response.ok) throw new Error('Failed to add comment');
+                document.getElementById('comment-content').value = ''; // Clear input
+                fetchComments(); // Refresh comments
+            } catch (error) {
+                console.error(error);
+                alert('Error adding comment. Please try again.');
+            }
+        });
+
+        // Fetch comments when the page loads
+        fetchComments();
+    </script>
+</body>
+</html>

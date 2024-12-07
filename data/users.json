@@ -1,0 +1,40 @@
+[
+  {
+    "id": "_6dxtk87",
+    "email": "garima@gmail.com",
+    "password": "$2b$10$MpnIS2oGbmjgXHdDe6h..e4QsJSqTRl34LnYF8wNxa9ufGTeGZ3Nu",
+    "likedRecipes": []
+  },
+  {
+    "id": "_66vgwb6",
+    "email": "gk@gmail.com",
+    "password": "$2b$10$Q7fZl3Z8WVx.cTIcff8dEOyZuScVNfz0gtjQGpFKgrFmhacdw3fNe",
+    "likedRecipes": []
+  },
+  {
+    "id": "_1bt1y7p",
+    "email": "123@gmail.com",
+    "password": "$2b$10$3.5Y6CuMnbeOabtj0vjl1udIITpkf/sazca4ezENSTdo32rNvA2Sy",
+    "likedRecipes": []
+  },
+  {
+    "id": "_z2xjc1q",
+    "email": "this@that.com",
+    "password": "$2b$10$/uBMXQ48lR9wNkajfSCyhOVbP47VOnyUv2q3d4cbTSUsERf.LbEE.",
+    "likedRecipes": [
+      "39a35576-89d9-462c-9b19-a7f45928b2bd"
+    ]
+  },
+  {
+    "id": "_o09bon5",
+    "email": "dummy@this.com",
+    "password": "$2b$10$Z1QwtNaPQZSlRUGDtIblpukFpqO5XSqFDzjAtHHQs7VqRJgAYh0kW",
+    "likedRecipes": []
+  },
+  {
+    "id": "_boa7sci",
+    "email": "lochanbisne@gmail.com",
+    "password": "$2b$10$dRYX7BS2wrmGumhGFWRUgesIyS3ZH7oXPQ6RddC8CGYCvqGaxMhRe",
+    "likedRecipes": []
+  }
+]

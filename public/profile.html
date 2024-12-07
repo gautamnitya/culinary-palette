@@ -1,0 +1,118 @@
+<!-- profile.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Culinary Palate</a>
+
+        <!-- Display User Email and Profile/Logout buttons if logged in -->
+        <div id="userNav">
+            <!-- These elements will be dynamically inserted by JavaScript -->
+        </div>
+    </nav>
+    <div class="container">
+        <h1 id="user-email"></h1>
+        <h2>Your Recipes</h2>
+        <div id="recipes-container"></div>
+    </div>
+
+    <footer>
+        <p>Welcome to Culinary Palate ❤</p>
+    </footer>
+    <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            window.location.href = 'login.html'; // Redirect to login if no token
+            return;
+        }
+
+        // Decode token to get user ID and email
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        const userId = payload.id;
+        const userEmail = payload.email;
+
+        document.getElementById('user-email').textContent = `Welcome, ${userEmail}`;
+
+        try {
+            const response = await fetch('/api/recipes', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            if (!response.ok) throw new Error('Failed to fetch recipes');
+
+            const recipes = await response.json();
+            const userRecipes = recipes.filter(recipe => recipe.createdBy === userId);
+
+            const recipesContainer = document.getElementById('recipes-container');
+            userRecipes.forEach(recipe => {
+                const recipeDiv = document.createElement('div');
+                recipeDiv.classList.add('recipe');
+                recipeDiv.setAttribute('data-id', recipe._id);
+                recipeDiv.innerHTML = `
+                    <h3>${recipe.title} <button class="delete-btn" data-id="${recipe._id}">Delete</button></h3>
+                    ${recipe.coverImage ? `<img src="${recipe.coverImage}" alt="${recipe.title} Cover" />` : ''}
+                    <p>Cooking Time: ${recipe.time} minutes</p>
+                `;
+                recipesContainer.appendChild(recipeDiv);
+            });
+
+            // Add event listener for recipe actions
+            recipesContainer.addEventListener('click', async (event) => {
+                const recipeCard = event.target.closest('.recipe');
+
+                // View Recipe Details
+                if (recipeCard && !event.target.classList.contains('delete-btn')) {
+                    const recipeId = recipeCard.dataset.id;
+                    window.location.href = `/recipe.html?id=${recipeId}`;
+                    return;
+                }
+
+                // Delete Recipe
+                if (event.target.classList.contains('delete-btn')) {
+                    const recipeId = event.target.getAttribute('data-id');
+                    try {
+                        const deleteResponse = await fetch(`/api/recipes/${recipeId}`, {
+                            method: 'DELETE',
+                            headers: {
+                                'Authorization': `Bearer ${token}`
+                            }
+                        });
+
+                        if (deleteResponse.ok) {
+                            location.reload();
+                        } else {
+                            alert('Failed to delete recipe');
+                        }
+                    } catch (error) {
+                        console.error('Error deleting recipe:', error);
+                    }
+                }
+            });
+        } catch (error) {
+            console.error('Error fetching recipes:', error);
+        }
+
+        // Add logout functionality
+        const userNav = document.getElementById('userNav');
+        userNav.innerHTML = `
+            <span>${userEmail}</span>
+            <button id="logout-btn">Logout</button>
+        `;
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.removeItem('token');
+            window.location.href = 'login.html';
+        });
+    });
+    </script>
+</body>
+</html>

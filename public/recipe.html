@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Culinary Palate</a>
+        <div id="userNav">
+            <!-- This section will be updated dynamically with user login/logout status -->
+        </div>
+    </nav>
+    <br>
+    <div class="recipe-container">
+        <img id="recipeImage" src="" alt="Recipe Image">
+        <br><br>
+        <div class="recipe-details" id="recipeDetails">
+            <h1 id="title"></h1>
+            <p id="ingredients"></p>
+            <p id="instructions"></p>
+            <p id="time"></p>
+
+            <!-- Comments Icon -->
+            <button id="commentsButton" style="cursor: pointer; background: none; border: none; font-size: 24px;">
+                💬 Comments
+            </button>
+        </div>
+    </div>
+    <br><br><br><br><br><br>
+    <footer>
+        <p>Welcome to Culinary Palate ❤️</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        const recipeId = new URLSearchParams(window.location.search).get('id'); // Get recipe ID from query parameter
+        const commentsButton = document.getElementById('commentsButton');
+
+        // Redirect to comments.html with the recipe ID as a query parameter
+        commentsButton.addEventListener('click', () => {
+            window.location.href = `comments.html?id=${recipeId}`;
+        });
+    </script>
+</body>
+</html>

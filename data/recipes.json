@@ -1,0 +1,35 @@
+[
+  {
+    "id": "39a35576-89d9-462c-9b19-a7f45928b2bd",
+    "title": "cup of tea",
+    "ingredients": [
+      "cghb "
+    ],
+    "instructions": " vhghbn ",
+    "time": "10 min",
+    "coverImage": "/images/0bab26d9-79cc-415a-8ee1-1735c80164c0-anime_drawing_girl_image_by_jessmatthewsart24_ddqhlx1-pre.jpg",
+    "createdBy": "_1bt1y7p",
+    "likes": true,
+    "comments": [
+      {
+        "id": "8337ec74-da05-4f72-a113-f6877a823f85",
+        "userId": "123@gmail.com",
+        "content": "its workingggg",
+        "createdAt": "2024-12-03T08:02:07.180Z"
+      }
+    ]
+  },
+  {
+    "id": "8ae227cb-0f66-48ff-96af-b4dc715f4101",
+    "title": "Recipe title",
+    "ingredients": [
+      "Indegridients"
+    ],
+    "instructions": "Instruction",
+    "time": "10mins",
+    "coverImage": "/images/af77099e-f90b-4006-a605-4de8405b2c15-November Azure Billing.png",
+    "createdBy": "_z2xjc1q",
+    "likes": false,
+    "comments": []
+  }
+]
